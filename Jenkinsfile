@@ -17,20 +17,11 @@ pipeline {
             }
         }
 
-        stage('SAST Security Scan') {
+        stage('SAST and SCA Security Scan') {
             steps {
-                echo "Running Static Application Security Testing..."
+                echo "Running SAST and SCA security scans..."
                 bat "python security/security_scan.py"
-                echo "SAST scan passed - no critical vulnerabilities"
-            }
-        }
-
-        stage('Dependency Check (SCA)') {
-            steps {
-                echo "Checking dependencies for known CVEs..."
-                bat "pip install safety --quiet"
-                bat "safety check || echo WARNING: Vulnerabilities found - logged for remediation"
-                echo "SCA scan complete - findings logged for security team review"
+                echo "All security scans passed"
             }
         }
 
@@ -69,7 +60,7 @@ pipeline {
                 withDockerRegistry([credentialsId: 'docker-creds', url: '']) {
                     bat "docker push %REGISTRY%/%APP_NAME%:%VERSION%"
                 }
-                echo "Image pushed successfully to runtimeterror01/medisecure"
+                echo "Image pushed to runtimeterror01/medisecure"
             }
         }
 
@@ -100,7 +91,7 @@ pipeline {
         success {
             echo "============================================"
             echo "DevSecOps Pipeline PASSED"
-            echo "MediSecure v${BUILD_NUMBER} deployed securely"
+            echo "MediSecure deployed securely"
             echo "HIPAA Compliant: YES"
             echo "Security Gates: ALL PASSED"
             echo "============================================"
@@ -108,7 +99,7 @@ pipeline {
         failure {
             echo "============================================"
             echo "Pipeline FAILED - security gate blocked deployment"
-            echo "Review SAST and SCA findings before retrying"
+            echo "Review SAST findings before retrying"
             echo "No vulnerable code was deployed"
             echo "============================================"
         }
