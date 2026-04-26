@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Records — MediSecure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand"><div class="cross">+</div> MediSecure</a>
+  <ul class="nav-links">
+    <li><a href="patient.html" class="active">My Records</a></li>
+    <li><a href="dashboard.html">Doctor Portal</a></li>
+  </ul>
+  <span class="badge-secure">&#128274; Encrypted</span>
+</nav>
+
+<div class="layout">
+  <div class="sidebar">
+    <a href="patient.html" class="sidebar-item active">&#128196; My records</a>
+    <a href="#" class="sidebar-item">&#128197; Appointments</a>
+    <a href="#" class="sidebar-item">&#128138; Prescriptions</a>
+    <a href="#" class="sidebar-item">&#127973; Lab results</a>
+    <a href="#" class="sidebar-item">&#128274; Privacy settings</a>
+    <a href="index.html" class="sidebar-item" style="margin-top:auto;color:var(--danger)">&#128682; Sign out</a>
+  </div>
+
+  <div class="main">
+    <div class="alert alert-success" style="margin-bottom:1.5rem">
+      &#128274; Your records are encrypted. Only authorised providers can access this data.
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem">
+      <div style="width:56px;height:56px;background:#e8f2fd;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid #0a6bc4;font-weight:700;color:#0a6bc4">JD</div>
+      <div>
+        <h2 style="font-size:1.3rem">John Doe</h2>
+        <p style="color:var(--text-muted);font-size:0.88rem">Patient ID: #PT-20240198 &nbsp;|&nbsp; DOB: 15 Mar 1985 &nbsp;|&nbsp; Blood type: O+</p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value" style="font-size:1.5rem;color:#1a7f37">Normal</div><div class="stat-label">Overall health status</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:1.5rem">120/80</div><div class="stat-label">Blood pressure (mmHg)</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:1.5rem">98.6°F</div><div class="stat-label">Temperature</div></div>
+      <div class="stat-card"><div class="stat-value" style="font-size:1.5rem">72 bpm</div><div class="stat-label">Heart rate</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:1.5rem">
+      <h3 style="margin-bottom:1rem">Recent visits</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Doctor</th><th>Reason</th><th>Status</th><th>Records</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>12 Apr 2026</td><td>Dr. Priya Sharma</td><td>Annual checkup</td><td><span class="pill pill-green">Completed</span></td><td><a href="#" style="color:var(--primary);font-size:0.85rem">View &#128274;</a></td></tr>
+            <tr><td>28 Feb 2026</td><td>Dr. Alan Torres</td><td>Flu symptoms</td><td><span class="pill pill-green">Completed</span></td><td><a href="#" style="color:var(--primary);font-size:0.85rem">View &#128274;</a></td></tr>
+            <tr><td>10 Jan 2026</td><td>Dr. Priya Sharma</td><td>Blood test</td><td><span class="pill pill-blue">Results pending</span></td><td><a href="#" style="color:var(--primary);font-size:0.85rem">View &#128274;</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:1rem">Active prescriptions</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Prescribed by</th><th>Expires</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Amoxicillin</td><td>500mg</td><td>Twice daily</td><td>Dr. Torres</td><td>30 Apr 2026</td></tr>
+            <tr><td>Vitamin D3</td><td>1000 IU</td><td>Once daily</td><td>Dr. Sharma</td><td>12 Oct 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
